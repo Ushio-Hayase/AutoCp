@@ -7,7 +7,7 @@ import com.intellij.psi.PsiDirectory
 class CppRustFileGenerator(project: Project) : DefaultFileGenerator(project) {
     override fun isSupported(extension: String): Boolean = extension == "cpp" || extension == "rs"
     override fun getFileNameWithExtension(parentPsiDir: PsiDirectory, fileName: String, extension: String): String {
-        val newFileName = defaultConversion(fileName)
+        val newFileName = super.getValidFileName(fileName)
         return "${newFileName}.$extension"
     }
 }

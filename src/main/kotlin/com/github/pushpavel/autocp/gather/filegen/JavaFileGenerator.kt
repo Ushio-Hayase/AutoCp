@@ -57,7 +57,7 @@ class JavaFileGenerator(project: Project) : DefaultFileGenerator(project) {
                     if (ModuleManager.getInstance(project).findModuleByName(parent.name) == null) {
                         val module = ModuleManager.getInstance(project)
                             .newModule(
-                                Paths.get(parent.pathString, "${defaultConversion(parent.name)}.iml"),
+                                Paths.get(parent.pathString, "${super.getValidFileName(parent.name)}.iml"),
                                 "JAVA_MODULE"
                             )
                         val model = module.rootManager.modifiableModel

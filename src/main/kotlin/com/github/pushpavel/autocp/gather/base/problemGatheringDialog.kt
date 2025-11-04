@@ -139,6 +139,6 @@ fun showProblemGatheringDialog(project: Project, problems: List<Problem>): List<
     return List(problemNames.size) { FileGenerationDto(problemNames[it], rootDir, template) }
 }
 
-fun Problem.getDefaultName() = DefaultFileGenerator.defaultConversion(name)
+fun Problem.getDefaultName() = DefaultFileGenerator.unicodeWhiteListConversion(name)
 
 fun Problem.getOnlineJudge() = groupName.split("-")[0].trim();

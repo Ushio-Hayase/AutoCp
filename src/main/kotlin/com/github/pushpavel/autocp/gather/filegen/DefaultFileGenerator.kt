@@ -125,7 +125,9 @@ open class DefaultFileGenerator(val project: Project) : FileGenerator {
 
     companion object{
         val specialCharacterFiltering: (String) -> String = { it.replace("[<>:;,?\"*|/]".toRegex(), "").trim() }
-        val unicodeWhiteListConversion: (String) -> String = { it.replace("[^\\p{L}\\p{N} \\-_]".toRegex(), "").trim() }
+        val unicodeWhiteListConversion: (String) -> String = { it.replace(' ', '_')
+            .replace('-', '_')
+            .replace("[^\\p{L}\\p{N} \\-_]".toRegex(), "").trim() }
         val defaultConversion: (String) -> String = { it.replace(' ', '_')
             .replace('-', '_')
             .replace("[^0-9a-zA-Z_]".toRegex(), "")
